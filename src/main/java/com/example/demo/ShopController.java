@@ -10,29 +10,35 @@ import java.util.Collection;
 @RestController
 public class ShopController {
     private ShopService shopService;
+
     @Autowired
-    public ShopController(ShopService shopService){
+    public ShopController(ShopService shopService) {
         this.shopService = shopService;
     }
+
     @PostMapping(value = "/shops",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public Shop createShop(@RequestBody Shop shop) {
         return shopService.addShop(shop);
     }
+
     @DeleteMapping("/{shopId}")
-    public Shop delete(@PathVariable String shopId){
+    public Shop delete(@PathVariable String shopId) {
         return shopService.deleteShopId(shopId);
     }
+
     @GetMapping("/{shopId}")
-    public Shop getShop(@PathVariable String shopId){
+    public Shop getShop(@PathVariable String shopId) {
         return shopService.getShop(shopId);
     }
+
     @GetMapping
-    public Collection<Shop> shopCollection(){
+    public Collection<Shop> shopCollection() {
         return shopService.shopCollection();
     }
+
     @PutMapping(value = "/{shopId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Shop update(@RequestBody Shop shop, @PathVariable String shopId){
+    public Shop update(@RequestBody Shop shop, @PathVariable String shopId) {
         return shopService.update(shop, shopId);
     }
 }

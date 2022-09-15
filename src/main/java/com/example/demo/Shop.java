@@ -56,7 +56,7 @@ public abstract class Shop {
         this.shopSite = shopSite;
     }
 
-    public Shop(String  shopId, String city, String street, String name, int employees, boolean shopSite){
+    public Shop(String shopId, String city, String street, String name, int employees, boolean shopSite) {
         this.shopId = shopId;
         this.city = city;
         this.street = street;
